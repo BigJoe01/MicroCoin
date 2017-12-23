@@ -42,14 +42,23 @@ uses
   UPoolMining in 'Units\MicroCoin\UPoolMining.pas',
   UOpenSSL in 'Units\MicroCoin\UOpenSSL.pas',
   LCLTranslator,
-  UOpenSSLdef in 'Units\MicroCoin\UOpenSSLdef.pas';
+  UOpenSSLdef in 'Units\MicroCoin\UOpenSSLdef.pas',
+  sysutils{$IFDEF WINDOWS},windows{$ENDIF}
+
+;
 
 {.$R *.res}
-
 {$R *.res}
-
+var c : char;
 begin
-  SetDefaultLang('hu');
+  {$IFDEF WINDOWS}
+  if GetSystemDefaultLCID=1038 then begin
+    SetDefaultLang('hu');
+    GetLocaleFormatSettings(GetUserDefaultLCID, DefaultFormatSettings);
+    DefaultFormatSettings.DecimalSeparator := '.';
+    DefaultFormatSettings.ThousandSeparator := ',';
+  end;
+  {$ENDIF}
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
   Application.Title := 'Micro Coin Wallet, Miner & Explorer';

@@ -955,7 +955,6 @@ end;
 procedure TFRMWallet.FormCreate(Sender: TObject);
 Var i : Integer;
 begin
-  SetDefaultLang('hu');
   FBackgroundPanel := Nil;
   FMustProcessWalletChanged := false;
   FMustProcessNetConnectionUpdated := false;
