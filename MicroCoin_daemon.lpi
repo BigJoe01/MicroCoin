@@ -54,6 +54,11 @@
         <OptimizationLevel Value="0"/>
       </Optimizations>
     </CodeGeneration>
+    <Other>
+      <OtherDefines Count="1">
+        <Define0 Value="OpenSSL10"/>
+      </OtherDefines>
+    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">

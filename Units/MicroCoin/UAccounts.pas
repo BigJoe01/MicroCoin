@@ -1819,6 +1819,7 @@ Var w : Word;
   endBlocks : Cardinal;
 begin
   Result := false;
+  if(Stream.Size=0) then begin Result := true; exit; end;
   sbHeader := CT_PCSafeBoxHeader_NUL;
   initialPos := Stream.Position;
   try

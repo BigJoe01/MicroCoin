@@ -604,9 +604,10 @@ msgid "Change Key name"
 msgstr "Kulcs átnevezése"
 
 #: tfrmwallet.bbselectedaccountsoperation.caption
+#| msgid "Operations"
 msgctxt "tfrmwallet.bbselectedaccountsoperation.caption"
-msgid "Operations"
-msgstr "Tranzakció:"
+msgid "Batch Operations"
+msgstr "Kötegelt művelet"
 
 #: tfrmwallet.bbsendamessage.caption
 msgid "Send a Message"
@@ -958,6 +959,10 @@ msgstr "Pénztárca"
 msgid "Remove account from selected"
 msgstr "Számla eltávolítása"
 
+#: tfrmwallet.panel10.caption
+msgid "Panel10"
+msgstr ""
+
 #: tfrmwallet.panel5.caption
 msgid "Panel5"
 msgstr ""
@@ -997,6 +1002,14 @@ msgstr "Blokkok"
 #: tfrmwallet.tabsheet1.caption
 msgid "TabSheet1"
 msgstr ""
+
+#: tfrmwallet.tabsheet2.caption
+msgid "Account history"
+msgstr "Számlatörténet"
+
+#: tfrmwallet.tabsheet3.caption
+msgid "Multiple Operations"
+msgstr "Kötegelt művelet"
 
 #: tfrmwallet.tsaccountoperations.caption
 msgid "Operations of selected Account"

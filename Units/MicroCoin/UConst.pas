@@ -4,17 +4,15 @@ unit UConst;
   {$MODE Delphi}
 {$ENDIF}
 
-{ Copyright (c) 2017 by Peter Nemeth
+{
+  Copyright (c) 2016 by Albert Molina
+  Copyright (c) 2017 by Peter Nemeth
 
   Distributed under the MIT software license, see the accompanying file LICENSE
   or visit http://www.opensource.org/licenses/mit-license.php.
 
   This unit is a part of Micro Coin, a P2P crypto currency without need of
   historical operations.
-
-  If you like it, consider a donation using BitCoin:
-  16K3HCZRhFUtM8GdWRcfKeaa6KsuyxZaYk
-
   }
 
 interface
@@ -22,7 +20,7 @@ interface
 {$I config.inc}
 
 {$IFNDEF FPC}
-  // See http://wiki.freepascal.org/Code_Conversion_Guide
+
 type
   PtrInt = integer;
   PtrUInt = cardinal;
@@ -30,9 +28,7 @@ type
 
 Const
   CT_Genesis_Magic_String_For_Old_Block_Hash :
-    AnsiString =
-//    '(c) Peter Nemeth - Genesis block at same time than BitCoin Block 424720 Hash 000000000000000001cc41ff7846264718ef0a15f97f532a98277bd5f6820b89';
-    '(c) Peter Nemeth - Okes rendben okes';
+    AnsiString = '(c) Peter Nemeth - Okes rendben okes';
   CT_Zero_Block_Proof_of_work_in_Hexa =
     {$IFDEF PRODUCTION}'0000007A35BA642D75EBDA692D25DA09AB8EABE802BC970C01DE08F60DC3F93F'{$ELSE}{$IFDEF TESTNET}''{$ELSE}{$ENDIF}{$ENDIF};
 
@@ -57,9 +53,9 @@ Const
   CT_RecoverFoundsWaitInactiveCount = 420480;  // After 4 years... if an account has no operations, money will be a reward for a miner!
   CT_MaxFutureBlocksLockedAccount = 105120; // Maximum future blocks an account can be locked
 
-  CT_MaxTransactionAmount = 1000000000000; // ... can be deleted
+  CT_MaxTransactionAmount = 1000000000000;
   CT_MaxTransactionFee = 100000000;
-  CT_MaxWalletAmount = 10000000000000; // ... can be deleted
+  CT_MaxWalletAmount = 10000000000000;
   //
   CT_MinCompactTarget: Cardinal = {$IFDEF PRODUCTION}$19000000{$ELSE}{$IFDEF TESTNET}$19000000{$ELSE}{$ENDIF}{$ENDIF}; // First compact target of block 0
 
@@ -78,7 +74,7 @@ Const
 
   CT_MaxClientsConnected = 100;
 
-  CT_BankToDiskEveryNBlocks = {$IFDEF PRODUCTION}100{$ELSE}10{$ENDIF}; // Build 1.5 changed from 500 to 100;
+  CT_BankToDiskEveryNBlocks = {$IFDEF PRODUCTION}100{$ELSE}10{$ENDIF};
 
   CT_NID_secp256k1 = 714;
   CT_NID_secp384r1 = 715;
@@ -95,9 +91,9 @@ Const
   CT_Protocol_Upgrade_v2_MinBlock = {$IFDEF PRODUCTION}100{$ELSE}600{$ENDIF};
 
 
-  CT_MagicNetIdentification = {$IFDEF PRODUCTION}$0A043580{$ELSE}$0A04FFFF{$ENDIF}; // Unix timestamp 168048000 ... It's Albert birthdate!
+  CT_MagicNetIdentification = {$IFDEF PRODUCTION}$0A043580{$ELSE}$0A04FFFF{$ENDIF};
 
-  CT_NetProtocol_Version: Word = $0006; // Version 2.1.2 only allows net protocol 6 (Introduced on 2.0.0)
+  CT_NetProtocol_Version: Word = $0006;
   // IMPORTANT NOTE!!!
   // NetProtocol_Available MUST BE always >= NetProtocol_version
   CT_NetProtocol_Available: Word = $0006;  // Remember, >= NetProtocol_version !!!
@@ -135,9 +131,8 @@ Const
   CT_OpSubtype_ChangeKeySigned            = 71;
   CT_OpSubtype_ChangeAccountInfo          = 81;
 
-  CT_ClientAppVersion : AnsiString = {$IFDEF PRODUCTION}'1.0.0'{$ELSE}{$IFDEF TESTNET}'TESTNET 2.1.3'{$ELSE}{$ENDIF}{$ENDIF};
+  CT_ClientAppVersion : AnsiString = {$IFDEF PRODUCTION}'1.0.1'{$ELSE}{$IFDEF TESTNET}'TESTNET 1.0.0'{$ELSE}{$ENDIF}{$ENDIF};
 
-//  CT_Discover_IPs =  'bpascal1.dynamic-dns.net;bpascal2.dynamic-dns.net;microcoin2.ddns.net;microcoin1.dynamic-dns.net;microcoin1.dns1.us';
   CT_Discover_IPs =  '185.28.101.93;80.211.211.48;94.177.237.196';
 
   CT_TRUE_FALSE : Array[Boolean] Of AnsiString = ('FALSE','TRUE');
@@ -159,15 +154,13 @@ Const
   CT_PARAM_MinerName = 'MinerName';
   CT_PARAM_FirstTime = 'FirstTime';
   CT_PARAM_ShowModalMessages = 'ShowModalMessages';
-  {$IFDEF TESTNET}CT_PARAM_MaxCPUs = 'MaxCPUs'; {$ENDIF} //deprecated
+  {$IFDEF TESTNET}CT_PARAM_MaxCPUs = 'MaxCPUs'; {$ENDIF}
   CT_PARAM_PeerCache = 'PeerCache';
   CT_PARAM_TryToConnectOnlyWithThisFixedServers = 'TryToConnectOnlyWithFixedServers';
   CT_PARAM_JSONRPCMinerServerPort = 'JSONRPCMinerServerPort';
   CT_PARAM_JSONRPCMinerServerActive = 'JSONRPCMinerServerActive';
   CT_PARAM_JSONRPCEnabled = 'JSONRPCEnabled';
   CT_PARAM_JSONRPCAllowedIPs = 'JSONRPCAllowedIPs';
-
-
 
 implementation
 

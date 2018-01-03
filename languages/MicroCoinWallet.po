@@ -591,7 +591,7 @@ msgstr ""
 
 #: tfrmwallet.bbselectedaccountsoperation.caption
 msgctxt "tfrmwallet.bbselectedaccountsoperation.caption"
-msgid "Operations"
+msgid "Batch Operations"
 msgstr ""
 
 #: tfrmwallet.bbsendamessage.caption
@@ -931,6 +931,10 @@ msgstr ""
 msgid "Remove account from selected"
 msgstr ""
 
+#: tfrmwallet.panel10.caption
+msgid "Panel10"
+msgstr ""
+
 #: tfrmwallet.panel5.caption
 msgid "Panel5"
 msgstr ""
@@ -969,6 +973,14 @@ msgstr ""
 
 #: tfrmwallet.tabsheet1.caption
 msgid "TabSheet1"
+msgstr ""
+
+#: tfrmwallet.tabsheet2.caption
+msgid "Account history"
+msgstr ""
+
+#: tfrmwallet.tabsheet3.caption
+msgid "Multiple Operations"
 msgstr ""
 
 #: tfrmwallet.tsaccountoperations.caption

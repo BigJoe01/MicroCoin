@@ -1427,7 +1427,8 @@ begin
     if TNode.Node.Bank.BlocksCount=0 then begin
       TLog.NewLog(ltdebug,CT_LogSender,'I have no blocks');
       If Connection.FRemoteOperationBlock.protocol_version>=CT_PROTOCOL_2 then begin
-        DownloadSafeBox(False);
+        Connection.Send_GetBlocks(0,10,rid);
+//        DownloadSafeBox(False);
       end else begin
         Connection.Send_GetBlocks(0,10,rid);
       end;

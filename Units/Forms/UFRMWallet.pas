@@ -125,7 +125,9 @@ type
     MenuItem8: TMenuItem;
     MenuItem9: TMenuItem;
     PageControl: TPageControl;
+    PageControl1: TPageControl;
     Panel1: TPanel;
+    Panel10: TPanel;
     Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
@@ -153,6 +155,7 @@ type
     StatusBar: TStatusBar;
     TabSheet1: TTabSheet;
     TabSheet2: TTabSheet;
+    TabSheet3: TTabSheet;
     Timer1: TTimer;
     TrayIcon: TTrayIcon;
     TimerUpdateStatus: TTimer;

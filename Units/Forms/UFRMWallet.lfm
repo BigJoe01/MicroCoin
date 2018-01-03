@@ -1,7 +1,7 @@
 object FRMWallet: TFRMWallet
-  Left = 293
+  Left = 381
   Height = 604
-  Top = 141
+  Top = 288
   Width = 865
   BorderIcons = [biSystemMenu, biMinimize]
   Caption = 'Micro Coin Wallet, JSON-RPC Miner & Explorer'
@@ -505,46 +505,6 @@ object FRMWallet: TFRMWallet
         ClientHeight = 438
         ClientWidth = 857
         TabOrder = 0
-        object Panel5: TPanel
-          Left = 450
-          Height = 438
-          Top = 0
-          Width = 407
-          Align = alClient
-          BevelOuter = bvNone
-          Caption = 'Panel5'
-          ChildSizing.LeftRightSpacing = 5
-          ChildSizing.TopBottomSpacing = 10
-          ClientHeight = 438
-          ClientWidth = 407
-          TabOrder = 0
-          object GroupBox3: TGroupBox
-            Left = 5
-            Height = 418
-            Top = 10
-            Width = 397
-            Align = alClient
-            Caption = 'Operations'
-            ChildSizing.LeftRightSpacing = 5
-            ChildSizing.TopBottomSpacing = 5
-            ClientHeight = 400
-            ClientWidth = 393
-            TabOrder = 0
-            object dgAccountOperations: TDrawGrid
-              Left = 5
-              Height = 390
-              Top = 5
-              Width = 383
-              Align = alClient
-              ExtendedSelect = False
-              TabOrder = 0
-              TitleFont.Color = clWindowText
-              TitleFont.Height = -11
-              TitleFont.Name = 'Tahoma'
-              OnDblClick = dgAccountOperationsDblClick
-            end
-          end
-        end
         object Panel4: TPanel
           Left = 0
           Height = 438
@@ -556,7 +516,7 @@ object FRMWallet: TFRMWallet
           ChildSizing.TopBottomSpacing = 10
           ClientHeight = 438
           ClientWidth = 450
-          TabOrder = 1
+          TabOrder = 0
           object GroupBox1: TGroupBox
             Left = 5
             Height = 97
@@ -817,6 +777,202 @@ object FRMWallet: TFRMWallet
             end
           end
         end
+        object PageControl1: TPageControl
+          Left = 450
+          Height = 438
+          Top = 0
+          Width = 407
+          ActivePage = TabSheet2
+          Align = alClient
+          TabIndex = 0
+          TabOrder = 1
+          object TabSheet2: TTabSheet
+            Caption = 'Account history'
+            ClientHeight = 412
+            ClientWidth = 399
+            object Panel5: TPanel
+              Left = 0
+              Height = 412
+              Top = 0
+              Width = 399
+              Align = alClient
+              BevelOuter = bvNone
+              Caption = 'Panel5'
+              ChildSizing.LeftRightSpacing = 5
+              ChildSizing.TopBottomSpacing = 10
+              ClientHeight = 412
+              ClientWidth = 399
+              TabOrder = 0
+              object GroupBox3: TGroupBox
+                Left = 5
+                Height = 392
+                Top = 10
+                Width = 389
+                Align = alClient
+                Caption = 'Operations'
+                ChildSizing.LeftRightSpacing = 5
+                ChildSizing.TopBottomSpacing = 5
+                ClientHeight = 374
+                ClientWidth = 385
+                TabOrder = 0
+                object dgAccountOperations: TDrawGrid
+                  Left = 5
+                  Height = 364
+                  Top = 5
+                  Width = 375
+                  Align = alClient
+                  ExtendedSelect = False
+                  TabOrder = 0
+                  TitleFont.Color = clWindowText
+                  TitleFont.Height = -11
+                  TitleFont.Name = 'Tahoma'
+                  OnDblClick = dgAccountOperationsDblClick
+                end
+              end
+            end
+          end
+          object TabSheet3: TTabSheet
+            Caption = 'Multiple Operations'
+            ClientHeight = 412
+            ClientWidth = 399
+            object dgSelectedAccounts: TDrawGrid
+              Left = 41
+              Height = 352
+              Top = 0
+              Width = 358
+              Align = alLeft
+              ExtendedSelect = False
+              TabOrder = 0
+              TitleFont.Color = clWindowText
+              TitleFont.Height = -11
+              TitleFont.Name = 'Tahoma'
+            end
+            object pnlSelectedAccountsLeft: TPanel
+              Left = 0
+              Height = 352
+              Top = 0
+              Width = 41
+              Align = alLeft
+              BevelOuter = bvNone
+              ClientHeight = 352
+              ClientWidth = 41
+              TabOrder = 1
+              object sbSelectedAccountsAdd: TSpeedButton
+                Left = 4
+                Height = 31
+                Top = 204
+                Width = 33
+                Caption = '>'
+                OnClick = sbSelectedAccountsAddClick
+              end
+              object sbSelectedAccountsAddAll: TSpeedButton
+                Left = 4
+                Height = 31
+                Top = 240
+                Width = 33
+                Caption = '>>'
+                OnClick = sbSelectedAccountsAddAllClick
+              end
+              object sbSelectedAccountsDel: TSpeedButton
+                Left = 4
+                Height = 31
+                Top = 276
+                Width = 33
+                Caption = '<'
+                OnClick = sbSelectedAccountsDelClick
+              end
+              object sbSelectedAccountsDelAll: TSpeedButton
+                Left = 4
+                Height = 31
+                Top = 312
+                Width = 33
+                Caption = '<<'
+                OnClick = sbSelectedAccountsDelAllClick
+              end
+            end
+            object Panel10: TPanel
+              Left = 5
+              Height = 50
+              Top = 357
+              Width = 389
+              Align = alBottom
+              BorderSpacing.Around = 5
+              BevelOuter = bvNone
+              Caption = 'Panel10'
+              ClientHeight = 50
+              ClientWidth = 389
+              TabOrder = 2
+              object bbSelectedAccountsOperation: TBitBtn
+                Left = 0
+                Height = 50
+                Top = 0
+                Width = 389
+                Align = alClient
+                Caption = 'Batch Operations'
+                Glyph.Data = {
+                  F6060000424DF606000000000000360000002800000018000000180000000100
+                  180000000000C0060000120B0000120B00000000000000000000FF00FFFF00FF
+                  FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
+                  FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+                  00FFFF00FFFF00FF019ACF019ACF019ACF019ACFFF00FFFF00FFFF00FFFF00FF
+                  FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF0C8518FF00FFFF00FFFF00FFFF00
+                  FFFF00FFFF00FFFF00FFFF00FF0D9FD18BD4EE6BD3F845C0ED28B0E0019ACF01
+                  9ACF019ACF019ACFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF0C85180C8518
+                  FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF069CD076C8E5A9E9FE6DD8
+                  FF75DBFF77DCFF77DBFF63D1F930B3E3029BD0019ACF019ACF019ACF019ACFFF
+                  00FF0C85181399220C8518FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF019ACF
+                  34AFD9BCE9F86ED8FF6FD8FE70D8FE70D8FE71D8FF0C85180C85180C85180C85
+                  180C85180C85180C85180C85181DAC31139A220C8518FF00FFFF00FFFF00FFFF
+                  00FFFF00FF019ACF1FA9D68FD3EB97E4FF6FD9FE71D9FE71D9FE71D9FE0C8518
+                  57E38851DD7E4AD77443D0693BC95E34C1522BBA4725B33C1EAE33149B230C85
+                  18FF00FFFF00FFFF00FFFF00FF019ACF31B1DC49B7DEBDEEFB71DDFE77DEFE77
+                  DEFE77DEFE0C85185EE89059E48953DE804CD87645D16C3DCA6035C2542DBB49
+                  26B53F1FAF35149B250C8518FF00FFFF00FFFF00FF019ACF52C2E71DA7D5ADE2
+                  F38FE8FF7CE2FE7CE3FE7CE3FE0C851861EB955FE9925AE58B54DF824DD97846
+                  D26D3ECB6237C4562FBD4C27B64021B037159B250C8518FF00FFFF00FF019ACF
+                  60CAEF1FA8D85EC1E1C2E6ED8ACEE08FCFE18ECFE10C851861EB9561EB955FEA
+                  935CE58D56E0844FDB7A48D47040CD6538C65931BF4D1DA3320C8518FF00FFFF
+                  00FFFF00FF019ACF65CFF53EB7E52CA9D4C5EFF8ACF3FEA5F2FFA5F2FF0C8518
+                  61EB9561EB9561EB9561EB945CE68E57E18650DC7C49D57242CE6727AD410C85
+                  18FF00FFFF00FFFF00FFFF00FF019ACF69D1F855C4F32A9CC673CBE7D6FEFDB1
+                  FBFDB2FBFD0C85180C85180C85180C85180C85180C85180C85180C851852DD7F
+                  32B6500C851898FAFF019ACFFF00FFFF00FFFF00FF019ACF77D5FC5CC8FB748E
+                  A224A8D5B9E7F3D5F5F9D5F6F9D6F6FADCFAFBCDFDFCB9FCFCAFFAFCB0FAFCB1
+                  FAFC0C85183ABE5C0C85189FFCFFA4FFFF43C1E2019ACFFF00FFFF00FF019ACF
+                  8BDBFF5FCDFFB7898973C3DD18A2D218A2D216A2D215A1D21AA4D391D7EBEBFE
+                  FDDBFDFCC5FBFBC2FBFB0C85180C851883E4F3B6FDFFBAFFFFB5FCFD019ACFFF
+                  00FFFF00FF019ACF99E2FF67D3FFB88989FEF5ECFDF3EBF0EFEAE5EBE8D6E5E6
+                  A4D2E025A6D34DB9DDE5F8FBF5FDFCEBFCFB0C8518C4FBFF9CE4F2DAFEFFD9FE
+                  FFE3FFFFADE9F5019ACFFF00FF019ACF9FE9FF70DCFFB88989FEF3E9FFF2E6FE
+                  F3E9FEF3E9FEF3E9FEF3E9D4E4E439ADD422A5D49DD8ECF1F9FBEEEFEFE9FDFF
+                  CEEEF7F8FFFFF7FFFFFEFFFFE9F9FD019ACFFF00FF019ACFA7EFFF76E5FFB889
+                  89FFF2E5FFF0E2FFF2E5FFF2E5FFF2E5FFF2E5FFF2E5EAEBE38EC9DA44B0D501
+                  9ACF019ACF019ACF019ACF019ACF019ACF019ACF019ACF019ACFFF00FF019ACF
+                  ABF6FF7EEDFFB88989FFF0E2FFEFDFFFF0E2FFF0E2FFF0E2FFF0E2FFF0E2FEEE
+                  E0FBECDEFAEBDEF6E6D9B8898993F7FF019ACFFF00FFFF00FFFF00FFFF00FFFF
+                  00FFFF00FF019ACFC7FFFF82F5FFB88989FFEEDFFFECDBFFEEDFFFEEDFFFEEDF
+                  FFEEDFF9E8D9DECCC1D9CABDCFBDB4C8B3ACB88989B5FFFF019ACFFF00FFFF00
+                  FFFF00FFFF00FFFF00FFFF00FF019ACFA4E0F0A0FDFFB88989FFECDBFFEBD8FF
+                  ECDBFFECDBFFECDBFFECDBF5E2D2C4ABA7C2A8A5BBA39FC2AFA9B88989019ACF
+                  FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF019ACFECFFFFB889
+                  89FFEBD8FFEAD5FFEBD8FFEBD8FFEBD8FFEBD8FFEBD8D9C8C5FEFEFDFEF6EFDE
+                  C9C0B88989FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+                  FF00FF019ACFB88989FFE9D5FFE8D3FFE9D5FFE9D5FFE9D5FFE9D5FFE9D5C6AD
+                  A9FEF8F2E8D4CACD9999FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
+                  00FFFF00FFFF00FFFF00FFFF00FFB88989FFE7D1FFE7D0FFE7D1FFE7D1FFE7D1
+                  FFE7D1E7CEBFD3BFB9E8D5CCCD9999FF00FFFF00FFFF00FFFF00FFFF00FFFF00
+                  FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFB88989FFE6CFFFE6CFFF
+                  E6CFFFE6CFFFE6CFFFE6CFD5BBB2E0CCC5CD9999FF00FFFF00FFFF00FFFF00FF
+                  FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFB889
+                  89B88989B88989B88989B88989B88989B88989B88989B88989FF00FFFF00FFFF
+                  00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
+                }
+                OnClick = bbSelectedAccountsOperationClick
+                TabOrder = 0
+              end
+            end
+          end
+        end
       end
     end
     object tsMyAccounts: TTabSheet
@@ -958,30 +1114,18 @@ object FRMWallet: TFRMWallet
         Height = 372
         Top = 66
         Width = 472
-        ActivePage = tsAccountOperations
+        ActivePage = tsMultiSelectAccounts
         Align = alClient
-        TabIndex = 0
+        TabIndex = 1
         TabOrder = 3
         object tsAccountOperations: TTabSheet
           Caption = 'Operations of selected Account'
         end
         object tsMultiSelectAccounts: TTabSheet
           Caption = 'Selected accounts for massive operations'
-          ClientHeight = 328
+          ClientHeight = 346
           ClientWidth = 464
           ImageIndex = 1
-          object dgSelectedAccounts: TDrawGrid
-            Left = 41
-            Height = 271
-            Top = 31
-            Width = 320
-            Align = alLeft
-            ExtendedSelect = False
-            TabOrder = 0
-            TitleFont.Color = clWindowText
-            TitleFont.Height = -11
-            TitleFont.Name = 'Tahoma'
-          end
           object pnlSelectedAccountsTop: TPanel
             Left = 0
             Height = 31
@@ -996,7 +1140,7 @@ object FRMWallet: TFRMWallet
             Font.Name = 'Tahoma'
             Font.Style = [fsBold]
             ParentFont = False
-            TabOrder = 1
+            TabOrder = 0
             object Label15: TLabel
               Left = 41
               Height = 16
@@ -1009,13 +1153,13 @@ object FRMWallet: TFRMWallet
           object pnlSelectedAccountsBottom: TPanel
             Left = 0
             Height = 26
-            Top = 302
+            Top = 320
             Width = 464
             Align = alBottom
             BevelOuter = bvNone
             ClientHeight = 26
             ClientWidth = 464
-            TabOrder = 2
+            TabOrder = 1
             object Label20: TLabel
               Left = 41
               Height = 13
@@ -1048,117 +1192,6 @@ object FRMWallet: TFRMWallet
               Caption = '000'
               ParentColor = False
             end
-          end
-          object pnlSelectedAccountsLeft: TPanel
-            Left = 0
-            Height = 271
-            Top = 31
-            Width = 41
-            Align = alLeft
-            BevelOuter = bvNone
-            ClientHeight = 271
-            ClientWidth = 41
-            TabOrder = 3
-            object sbSelectedAccountsAdd: TSpeedButton
-              Left = 2
-              Height = 31
-              Top = 0
-              Width = 33
-              Caption = '>'
-              OnClick = sbSelectedAccountsAddClick
-            end
-            object sbSelectedAccountsAddAll: TSpeedButton
-              Left = 2
-              Height = 31
-              Top = 37
-              Width = 33
-              Caption = '>>'
-              OnClick = sbSelectedAccountsAddAllClick
-            end
-            object sbSelectedAccountsDel: TSpeedButton
-              Left = 2
-              Height = 31
-              Top = 74
-              Width = 33
-              Caption = '<'
-              OnClick = sbSelectedAccountsDelClick
-            end
-            object sbSelectedAccountsDelAll: TSpeedButton
-              Left = 2
-              Height = 31
-              Top = 111
-              Width = 33
-              Caption = '<<'
-              OnClick = sbSelectedAccountsDelAllClick
-            end
-          end
-          object bbSelectedAccountsOperation: TBitBtn
-            Left = 367
-            Height = 61
-            Top = 31
-            Width = 75
-            Caption = 'Operations'
-            Glyph.Data = {
-              F6060000424DF606000000000000360000002800000018000000180000000100
-              180000000000C0060000120B0000120B00000000000000000000FF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FF019ACF019ACF019ACF019ACFFF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF0C8518FF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FF0D9FD18BD4EE6BD3F845C0ED28B0E0019ACF01
-              9ACF019ACF019ACFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF0C85180C8518
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF069CD076C8E5A9E9FE6DD8
-              FF75DBFF77DCFF77DBFF63D1F930B3E3029BD0019ACF019ACF019ACF019ACFFF
-              00FF0C85181399220C8518FF00FFFF00FFFF00FFFF00FFFF00FFFF00FF019ACF
-              34AFD9BCE9F86ED8FF6FD8FE70D8FE70D8FE71D8FF0C85180C85180C85180C85
-              180C85180C85180C85180C85181DAC31139A220C8518FF00FFFF00FFFF00FFFF
-              00FFFF00FF019ACF1FA9D68FD3EB97E4FF6FD9FE71D9FE71D9FE71D9FE0C8518
-              57E38851DD7E4AD77443D0693BC95E34C1522BBA4725B33C1EAE33149B230C85
-              18FF00FFFF00FFFF00FFFF00FF019ACF31B1DC49B7DEBDEEFB71DDFE77DEFE77
-              DEFE77DEFE0C85185EE89059E48953DE804CD87645D16C3DCA6035C2542DBB49
-              26B53F1FAF35149B250C8518FF00FFFF00FFFF00FF019ACF52C2E71DA7D5ADE2
-              F38FE8FF7CE2FE7CE3FE7CE3FE0C851861EB955FE9925AE58B54DF824DD97846
-              D26D3ECB6237C4562FBD4C27B64021B037159B250C8518FF00FFFF00FF019ACF
-              60CAEF1FA8D85EC1E1C2E6ED8ACEE08FCFE18ECFE10C851861EB9561EB955FEA
-              935CE58D56E0844FDB7A48D47040CD6538C65931BF4D1DA3320C8518FF00FFFF
-              00FFFF00FF019ACF65CFF53EB7E52CA9D4C5EFF8ACF3FEA5F2FFA5F2FF0C8518
-              61EB9561EB9561EB9561EB945CE68E57E18650DC7C49D57242CE6727AD410C85
-              18FF00FFFF00FFFF00FFFF00FF019ACF69D1F855C4F32A9CC673CBE7D6FEFDB1
-              FBFDB2FBFD0C85180C85180C85180C85180C85180C85180C85180C851852DD7F
-              32B6500C851898FAFF019ACFFF00FFFF00FFFF00FF019ACF77D5FC5CC8FB748E
-              A224A8D5B9E7F3D5F5F9D5F6F9D6F6FADCFAFBCDFDFCB9FCFCAFFAFCB0FAFCB1
-              FAFC0C85183ABE5C0C85189FFCFFA4FFFF43C1E2019ACFFF00FFFF00FF019ACF
-              8BDBFF5FCDFFB7898973C3DD18A2D218A2D216A2D215A1D21AA4D391D7EBEBFE
-              FDDBFDFCC5FBFBC2FBFB0C85180C851883E4F3B6FDFFBAFFFFB5FCFD019ACFFF
-              00FFFF00FF019ACF99E2FF67D3FFB88989FEF5ECFDF3EBF0EFEAE5EBE8D6E5E6
-              A4D2E025A6D34DB9DDE5F8FBF5FDFCEBFCFB0C8518C4FBFF9CE4F2DAFEFFD9FE
-              FFE3FFFFADE9F5019ACFFF00FF019ACF9FE9FF70DCFFB88989FEF3E9FFF2E6FE
-              F3E9FEF3E9FEF3E9FEF3E9D4E4E439ADD422A5D49DD8ECF1F9FBEEEFEFE9FDFF
-              CEEEF7F8FFFFF7FFFFFEFFFFE9F9FD019ACFFF00FF019ACFA7EFFF76E5FFB889
-              89FFF2E5FFF0E2FFF2E5FFF2E5FFF2E5FFF2E5FFF2E5EAEBE38EC9DA44B0D501
-              9ACF019ACF019ACF019ACF019ACF019ACF019ACF019ACF019ACFFF00FF019ACF
-              ABF6FF7EEDFFB88989FFF0E2FFEFDFFFF0E2FFF0E2FFF0E2FFF0E2FFF0E2FEEE
-              E0FBECDEFAEBDEF6E6D9B8898993F7FF019ACFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FF019ACFC7FFFF82F5FFB88989FFEEDFFFECDBFFEEDFFFEEDFFFEEDF
-              FFEEDFF9E8D9DECCC1D9CABDCFBDB4C8B3ACB88989B5FFFF019ACFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FF019ACFA4E0F0A0FDFFB88989FFECDBFFEBD8FF
-              ECDBFFECDBFFECDBFFECDBF5E2D2C4ABA7C2A8A5BBA39FC2AFA9B88989019ACF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF019ACFECFFFFB889
-              89FFEBD8FFEAD5FFEBD8FFEBD8FFEBD8FFEBD8FFEBD8D9C8C5FEFEFDFEF6EFDE
-              C9C0B88989FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-              FF00FF019ACFB88989FFE9D5FFE8D3FFE9D5FFE9D5FFE9D5FFE9D5FFE9D5C6AD
-              A9FEF8F2E8D4CACD9999FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFB88989FFE7D1FFE7D0FFE7D1FFE7D1FFE7D1
-              FFE7D1E7CEBFD3BFB9E8D5CCCD9999FF00FFFF00FFFF00FFFF00FFFF00FFFF00
-              FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFB88989FFE6CFFFE6CFFF
-              E6CFFFE6CFFFE6CFFFE6CFD5BBB2E0CCC5CD9999FF00FFFF00FFFF00FFFF00FF
-              FF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFB889
-              89B88989B88989B88989B88989B88989B88989B88989B88989FF00FFFF00FFFF
-              00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FFFF00FF
-            }
-            Layout = blGlyphTop
-            OnClick = bbSelectedAccountsOperationClick
-            TabOrder = 4
           end
         end
       end
@@ -1836,7 +1869,7 @@ object FRMWallet: TFRMWallet
   object Timer1: TTimer
     Interval = 5000
     OnTimer = Timer1Timer
-    left = 433
-    top = 71
+    left = 352
+    top = 56
   end
 end
