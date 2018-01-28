@@ -288,6 +288,9 @@ type
     FRPCServer : TRPCServer;
     FMustProcessWalletChanged : Boolean;
     FMustProcessNetConnectionUpdated : Boolean;
+    FWalletLastRunDate:TDateTime;
+    FWalletLastRunDateFile:string;
+    FSystemClockInvalid:boolean;
     Procedure OnNewAccount(Sender : TObject);
     Procedure OnReceivedHelloMessage(Sender : TObject);
     Procedure OnNetStatisticsChanged(Sender : TObject);
@@ -316,6 +319,9 @@ type
     Function DoUpdateAccountsFilter : Boolean;
     procedure CM_WalletChanged(var Msg: TMessage); message CM_PC_WalletKeysChanged;
     procedure CM_NetConnectionUpdated(var Msg: TMessage); message CM_PC_NetConnectionUpdated;
+    procedure ReadLastRunDate();
+    procedure WriteLastRunDate();
+    procedure CheckDateWarning();
   public
     { Public declarations }
     Property WalletKeys : TWalletKeysExt read FWalletKeys;
@@ -427,6 +433,7 @@ resourcestring
     +'Time offset %d - Active since %s %s';
   rsMySelfIPSSen = 'MySelf IP:%s Sent/Received:%d/%d Bytes - %s - Time offset '
     +'%d - Active since %s %s';
+  rsLastDateError = 'Your system time is invalid, please verify!';
 
 { TThreadActivate }
 
@@ -729,6 +736,85 @@ begin
   End;
 end;
 
+procedure TFRMWallet.ReadLastRunDate();
+var FHandle: THandle;
+    FSize: LongInt;
+begin
+  TLog.NewLog(ltinfo,Classname,'Reading last running date from ' + FWalletLastRunDateFile);
+  if not FileExists( FWalletLastRunDateFile) then
+  begin
+    WriteLastRunDate();
+    FWalletLastRunDate:= Now();
+    TLog.NewLog(ltinfo,Classname,'File not found, set default date.');
+    exit;
+  end;
+
+  FWalletLastRunDate := 0;
+  FHandle := FileOpen( FWalletLastRunDateFile, fmOpenRead );
+  try
+    if FHandle = 0 then
+      TLog.NewLog(ltinfo,Classname,'File open failed '+ FWalletLastRunDateFile);
+
+    if FHandle > 0 then
+    begin
+      FSize := FileSeek(FHandle,0,fsFromEnd);
+      if FSize > 7 then
+      begin
+        FileSeek(FHandle,0,0);
+        FileRead(FHandle, FWalletLastRunDate, SizeOf(FWalletLastRunDate));
+        TLog.NewLog(ltinfo,Classname,'Last running date loaded');
+      end;
+      FileClose(FHandle);
+    end;
+  finally
+
+  end;
+end;
+
+procedure TFRMWallet.WriteLastRunDate();
+var FHandle: THandle;
+begin
+  TLog.NewLog(ltinfo,Classname,'Write new running date');
+  if FileExists( FWalletLastRunDateFile ) then
+   begin
+      FHandle := FileOpen( FWalletLastRunDateFile, fmOpenReadWrite );
+   end
+  else
+   begin
+     FHandle := FileCreate( FWalletLastRunDateFile );
+   end;
+  try
+    if FHandle = 0 then
+        TLog.NewLog(ltinfo,Classname,'Write new date failed!');
+
+    if FHandle > 0 then
+    begin
+      FWalletLastRunDate := Now();
+      FileSeek(FHandle,0,0);
+      FileWrite(FHandle, FWalletLastRunDate, SizeOf(FWalletLastRunDate));
+      FileClose(FHandle);
+      TLog.NewLog(ltinfo,Classname,'Write new date success!');
+    end;
+  finally
+  end;
+end;
+
+procedure TFRMWallet.CheckDateWarning();
+var dNow: TDateTime;
+begin
+  FWalletLastRunDateFile := TFolderHelper.GetMicroCoinDataFolder+PathDelim+'Wallet.date';
+  ReadLastRunDate();
+  dNow := Now();
+  TLog.NewLog(ltinfo,Classname,'Wallet time ' + DateTimeToStr(FWalletLastRunDate, true)
+            + ' current time ' +  DateTimeToStr(dNow, true));
+  if ( FWalletLastRunDate = 0) or ( FWalletLastRunDate > dNow) then
+  begin
+       MessageDlg('MicroCoin',rsLastDateError, mtWarning, [ mbOK ], '');
+       FSystemClockInvalid := true;
+       Halt(1);
+  end;
+end;
+
 procedure TFRMWallet.CM_WalletChanged(var Msg: TMessage);
 begin
   UpdatePrivateKeys;
@@ -958,6 +1044,8 @@ end;
 procedure TFRMWallet.FormCreate(Sender: TObject);
 Var i : Integer;
 begin
+  FSystemClockInvalid := false;
+  CheckDateWarning();
   FBackgroundPanel := Nil;
   FMustProcessWalletChanged := false;
   FMustProcessNetConnectionUpdated := false;
@@ -1060,6 +1148,9 @@ Var i : Integer;
 begin
   TLog.NewLog(ltinfo,Classname,'Destroying form - START');
   Try
+  if FSystemClockInvalid then
+    exit;
+  WriteLastRunDate();
   FreeAndNil(FRPCServer);
   FreeAndNil(FPoolMiningServer);
   step := 'Saving params';
