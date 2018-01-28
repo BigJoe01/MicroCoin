@@ -1706,6 +1706,10 @@ msgstr ""
 msgid "%s Last connection: %s"
 msgstr ""
 
+#: ufrmwallet.rslastdateerror
+msgid "Your system time is invalid, please verify!"
+msgstr ""
+
 #: ufrmwallet.rslastdssecdss
 msgid "Last %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec."
 msgstr ""

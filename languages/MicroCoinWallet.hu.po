@@ -1734,6 +1734,9 @@ msgstr ""
 msgid "%s Last connection: %s"
 msgstr "%s Utolsó kapcsolat: %s"
 
+#: ufrmwallet.rslastdateerror
+msgid "Your system time is invalid, please verify!"
+msgstr ""
 #: ufrmwallet.rslastdssecdss
 msgid "Last %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec. - %d: %s sec."
 msgstr "Utolsó %d: %s mp. - %d: %s mp. - %d: %s mp. - %d: %s mp. - %d: %s mp."
